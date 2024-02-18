@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState } from "react"
-import { FirstQuestion } from "./assets/components/first-question"
-import { SecondQuestion } from "./assets/components/second-question"
-import { ThirdQuestion } from "./assets/components/third-question"
-import { FourthQuestion } from "./assets/components/fourth-question"
+import { FirstQuestion } from "./components/first-question"
+import { SecondQuestion } from "./components/second-question"
+import { ThirdQuestion } from "./components/third-question"
+import { FourthQuestion } from "./components/fourth-question"
 import { CheckCircle } from 'lucide-react'
 
 export function App() {
