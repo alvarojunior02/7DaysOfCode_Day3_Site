@@ -1,5 +1,6 @@
 import { HelpCircle, ArrowBigRight } from 'lucide-react'
 import { useState } from 'react'
+import { toast } from 'sonner'
 import Swal from 'sweetalert2'
 
 interface FourthQuestionParams {
@@ -27,17 +28,21 @@ export function FourthQuestion({ sequence, setSequence, fourthAnswers, setFourth
   }
 
   function handleFourthAnswer() {
-    setFourthAnswers([...fourthAnswers, fourthAnswerString])
-    setShouldShowStopMessage(!shouldShowStopMessage)
+    if (fourthAnswerString !== '') {
+      setFourthAnswers([...fourthAnswers, fourthAnswerString])
+      setShouldShowStopMessage(!shouldShowStopMessage)
 
-    Swal.fire({
-      title: 'Muito bem!',
-      text: `Vejo que deseja aprender ${fourthAnswerString}. Boa sorte em seus estudos!`,
-      icon: 'success',
-      confirmButtonText: 'Ok'
-    })
+      Swal.fire({
+        title: 'Muito bem!',
+        text: `Vejo que deseja aprender ${fourthAnswerString}. Boa sorte em seus estudos!`,
+        icon: 'success',
+        confirmButtonText: 'Ok'
+      })
 
-    setFourthAnswerString('')
+      setFourthAnswerString('')
+    } else {
+      toast.warning('Escreva o nome da tecnologia para avançar no quiz.')
+    }
   }
 
   return (
